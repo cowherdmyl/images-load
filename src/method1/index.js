@@ -1,7 +1,7 @@
-import Lazy from "./Lazy";
-import Load from "./Load";
+import Lazy from "./components/Lazy.js";
+import Load from "./components/Load.js";
 
-export const loadImage = (node, prop, emit, callback) => {
+const loadImage = (node, prop, emit, callback) => {
   if (prop.lazy) {
     const lazy = new Lazy(node, prop, emit, callback);
     return lazy.lazyCreateImg();
@@ -9,3 +9,5 @@ export const loadImage = (node, prop, emit, callback) => {
   const load = new Load(node, prop, emit, callback);
   load.loadCreateImg();
 };
+
+export default loadImage;
